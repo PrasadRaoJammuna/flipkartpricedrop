@@ -5,3 +5,4 @@ django-mail-admin==0.1.4
 gunicorn==19.9.0
 requests==2.21.0
 psycopg2==2.8.4
+whitenoise==4.1.4
