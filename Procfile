@@ -1,1 +1,1 @@
-web: gunicorn pricedrop.wsgi --logfile -
+web: gunicorn pricedrop.wsgi
