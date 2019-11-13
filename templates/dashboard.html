@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block content %}
+
+
+
+<form method='post' action='/add_url/'>{% csrf_token %}
+<div class="input-group mb-3">
+  
+  <input type="text" name='url' class="form-control" placeholder="Price Saver ! add a Flipkart URL" style="border-color:coral">
+  <div class="input-group-append">
+    <button class="btn btn-success" type="submit">ADD</button>
+  </div>
+
+</div>
+</form>
+
+
+
+<table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">URL</th>
+        <th scope="col">Added Price</th>
+        <th scope="col">Current Price</th>
+        <th scope="col">Added At</th>
+        <th scope="col">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody> 
+        {% for i,j in all %}
+      <tr>
+        <th scope="row"> {{forloop.counter}}</th>
+        <td><p>{{i.title | truncatewords:5 }}</p></td>
+        <td><a href={{i.url}} target="_blank">Link</a></td>
+        <td>{{i.curr_price}}</td>
+        <td> {{j}}</td>
+        <td>{{i.added_at}}</td>
+
+        <td><a href='/delete/{{i.id}}'  style='text-decoration:blink;'> ❌</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <br>
+
+
+
+{% endblock  %}

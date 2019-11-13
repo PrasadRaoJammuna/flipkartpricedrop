@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block content %}
+
+
+<!-- Default form login -->
+<form class="text-center border border-light p-5" action="login" method="post">{% csrf_token %}
+
+    <p class="h4 mb-4">Sign in</p>
+
+    <!-- Email -->
+    <input type="text" name="username" class="form-control mb-4" placeholder="Username" required>
+
+    <!-- Password -->
+    <input type="password" name="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" required>
+
+    
+
+    <!-- Sign in button -->
+    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+
+    <!-- Register -->
+    <p>Not a member?
+        <a style='text-decoration:blink;' href="{% url 'signup' %}">Register</a>
+    </p>
+
+   
+</form>
+<!-- Default form login -->
+
+<!--  form login  Messages -->
+    <div>
+            {% for message  in messages  %}
+            <h3 style="color:red;">{{ message }}</h3>
+            {% endfor %}
+           
+        </div>
+
+{% endblock %}
